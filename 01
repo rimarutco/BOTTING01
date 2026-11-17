@@ -1,13 +1,8 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Bucknbilly/scripts/refs/heads/main/Banana.lua"))()
--- ALL CREDITS TO MIKEY FOR THIS SCRIPT 
+-- LEGION V3 MADE BY UNSPECIFIED, MONEY & RIMARU
+-- Commands: .dall .adall .hide .unhide .summon .fling .stopfling
 
-
-
---Commands: .dall .adall .hide .unhide .summon .fling .stopfling
-
-
--- edit this to your main accounts name you want to use commands on
-local CONFIG = {
+-- Read config from loadstring launcher, fallback to default
+local CONFIG = (getgenv and getgenv().LEGION_CONFIG) or {
     main = "putyourmainaccountsnamehere"
 }
 
@@ -205,7 +200,7 @@ notify("Script Loaded", "Commands: .dall .adall .hide .unhide .summon .fling .st
 local function startAntiAfk()
     local virtualUser = game:GetService("VirtualUser")
 
-    LocalPlayer.Idled:Connect(function()
+    lp.Idled:Connect(function()
         virtualUser:CaptureController()
         virtualUser:ClickButton2(Vector2.new())
     end)
